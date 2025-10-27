@@ -1,0 +1,35 @@
+English	english.par	UTF8
+English (BNC)	english-bnc.par	UTF8
+French	french.par	UTF8
+German	german.par	UTF8
+German (GermanC)	germanc.par	UTF8
+Italian	italian.par	UTF8
+Italian (Baroni)	italian2.par	Latin-1
+Spanish	spanish.par	UTF8
+Spanish (Ancora)	spanish-ancora.par	UTF8
+Russian	russian.par	UTF8
+Danish	danish.par	UTF8
+Dutch	dutch.par	UTF8
+Dutch (Bioche)	dutch2.par	UTF8
+Polish	polish.par	UTF8
+Czech	czech.par	UTF8
+Slovak	slovak.par	UTF8
+Slovak (full tags)	slovak2.par	UTF8
+Slovenian	slovenian.par	UTF8
+Bulgarian	bulgarian.par	UTF8
+Romanian	romanian.par	UTF8
+Catalan	catalan.par	UTF8
+Galician	galician.par	UTF8
+Portuguese	portuguese.par	UTF8
+Portuguese (fine)	portuguese-finegrained.par	UTF8
+Portuguese (Flor Sint)	portuguese2.par	UTF8
+Estonian	estonian.par	UTF8
+Finnish	finnish.par	UTF8
+Middle High German	middle-high-german.par	UTF8
+Greek	greek.par	UTF8
+Ancient Greek	ancient-greek.par	UTF8
+Latin	latin.par	Unknown
+Latin (Index Thom)	latinIT.par	Unknown
+Korean	korean.par	UTF8
+Mongolian	mongolian.par	Unknown
+Swahili	swahili.par	UTF8
