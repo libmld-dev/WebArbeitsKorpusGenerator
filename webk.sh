@@ -11,7 +11,11 @@ echo "Run TreeTagger..."
 echo "Done!"
 echo "Transform result into csv..."
 ./anna.py korp.txt korp.csv
+echo "Done!"
+echo "Fetching metadata..."
 trafilatura -u "$1" --with-metadata --no-tables | head -n 8 > meta.txt
+echo "Done!"
+echo "Merging metadata..."
 ./postanna.py korp.csv korpm.csv meta.txt
 echo "Done!"
 
