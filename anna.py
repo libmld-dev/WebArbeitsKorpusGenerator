@@ -25,7 +25,11 @@ lines_out = ""
 # iter variables
 currSentenceStart = 0
 i = 0
-while i < len(lines_in):
+line_count = len(lines_in)
+while i < line_count:
+    # print status
+    print("Processing line ", i , " of ", line_count, end='\r')
+
     # get line and its tags
     l = lines_in[i]
     d = l.split("\t")
