@@ -122,6 +122,9 @@ while i < line_count:
     # inc i
     i = i + 1
 
+# newline after status print when finished
+print()
+
 # filter out not setences without specified token and print result to file
 lines_out_filtered = lines_out.split("\n")
 for l in lines_out_filtered:
