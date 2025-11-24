@@ -10,9 +10,7 @@ fout = open(sys.argv[2], "w+")
 tokenfilter = ["VVFIN", "VVIMP", "VVIZU", "VVINF", "VVPP"]
 
 # mark end of sentence
-sentenceEnd = [".", "!", "?"]
-currSentenceCounter = 0
-maxSentenceLen = 32
+sentenceEnd = [".", "!", "?", "*"]
 
 # flags for parsing
 inSentence = False
@@ -37,9 +35,7 @@ while i < line_count:
     d = l.split("\t")
 
     # detect sentence end case 1: token is only sentence terminator
-    if d[0] in sentenceEnd or currSentenceCounter > maxSentenceLen:
-        if currSentenceCounter > maxSentenceLen:
-            lines_out += "\""
+    if d[0] in sentenceEnd:
         lines_out += (d[0] + "\"" + "," + "\"" + currToken + "\"" + "\n")
 
         # reset state
@@ -60,10 +56,7 @@ while i < line_count:
         targetTokenIndex = 0
         currTokenIndex = 0
         restartSentence = False
-        currSentenceCounter = 0
         continue
-    else:
-        currSentenceCounter = currSentenceCounter + 1
 
     # if we are not in a sentence => start with new cell
     if not inSentence:
@@ -93,24 +86,26 @@ while i < line_count:
                     i = currSentenceStart
                     targetTokenIndex = targetTokenIndex + 1
                     restartSentence = False
-                    continue
+                    break
 
                 # end sentence
                 currSentenceStart = i
                 targetTokenIndex = 0
                 currTokenIndex = 0
                 restartSentence = False
-                currSentenceCounter = 0
-                continue
+                break
     else:
         # detect untargeted token as ordinary word
         if currTokenIndex != targetTokenIndex:
+
+            # found new target token
             if currTokenIndex > targetTokenIndex:
                 restartSentence = True
+
+            # store as ordinary word
             if inSentence:
                 lines_out += " "
 
-            # store word
             lines_out += d[0]
             currTokenIndex = currTokenIndex + 1
             i = i + 1
