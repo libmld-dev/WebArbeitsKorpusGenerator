@@ -1,7 +1,7 @@
 #!/bin/bash
 
-rm web.txt
-rm web_split.txt
-rm meta.txt
-rm korp.txt
-rm korp.csv
+rm -f web.txt
+rm -f web_split.txt
+rm -f meta.txt
+rm -f korp.txt
+rm -f korp.csv
