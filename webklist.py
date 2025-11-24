@@ -8,5 +8,7 @@ lines_in = [line.rstrip() for line in fin]
 
 # split by whitespace and print
 for l in lines_in:
+    if not l:
+        continue
     print("Doing " + l + "...")
     subprocess.run(["./webk.sh", l])
