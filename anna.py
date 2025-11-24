@@ -36,7 +36,7 @@ while i < line_count:
     l = lines_in[i]
     d = l.split("\t")
 
-    # detect sentence end case 1
+    # detect sentence end case 1: token is only sentence terminator
     if d[0] in sentenceEnd or currSentenceCounter > maxSentenceLen:
         if currSentenceCounter > maxSentenceLen:
             lines_out += "\""
@@ -65,18 +65,20 @@ while i < line_count:
     else:
         currSentenceCounter = currSentenceCounter + 1
 
+    # if we are not in a sentence => start with new cell
+    if not inSentence:
+        lines_out += "\""
+
     if not d[1] in tokenfilter:
         # print leading whitespace in sentence
         if inSentence:
             lines_out += " "
-        else:
-            lines_out += "\""
 
         # store word
         lines_out += d[0]
         inSentence = True
 
-        # detect sentence end case 2
+        # detect sentence end case 2: sentence terminator is part of token
         for e in sentenceEnd:
             if e in d[0]:
                 lines_out += "\"," + "\"" + currToken + "\"" + "\n"
@@ -94,33 +96,28 @@ while i < line_count:
                     continue
 
                 # end sentence
-                i = i + 1
                 currSentenceStart = i
                 targetTokenIndex = 0
                 currTokenIndex = 0
                 restartSentence = False
+                currSentenceCounter = 0
                 continue
     else:
-        # detect untargeted tokens as ordinary words
+        # detect untargeted token as ordinary word
         if currTokenIndex != targetTokenIndex:
             if currTokenIndex > targetTokenIndex:
                 restartSentence = True
             if inSentence:
                 lines_out += " "
-            else:
-                lines_out += "\""
 
             # store word
             lines_out += d[0]
-            inSentence = True
             currTokenIndex = currTokenIndex + 1
             i = i + 1
+            inSentence = True
             continue
 
-        if not inSentence:
-            lines_out += "\""
-
-        # store word
+        # store word and end cell
         lines_out += "\"," + "\"" + d[0] + "\"" + ","
         currToken = d[1]
         currTokenIndex = currTokenIndex + 1
@@ -132,7 +129,7 @@ while i < line_count:
 # newline after status print when finished
 print()
 
-# filter out not setences without specified token and print result to file
+# filter out not sentences without specified token and print result to file
 lines_out_filtered = lines_out.split("\n")
 for l in lines_out_filtered:
     for token in tokenfilter:
