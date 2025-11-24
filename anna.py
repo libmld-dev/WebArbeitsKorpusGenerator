@@ -11,6 +11,8 @@ tokenfilter = ["VVFIN", "VVIMP", "VVIZU", "VVINF", "VVPP"]
 
 # mark end of sentence
 sentenceEnd = [".", "!", "?"]
+currSentenceCounter = 0
+maxSentenceLen = 32
 
 # flags for parsing
 inSentence = False
@@ -35,7 +37,7 @@ while i < line_count:
     d = l.split("\t")
 
     # detect sentence end case 1
-    if d[0] in sentenceEnd:
+    if d[0] in sentenceEnd or currSentenceCounter > maxSentenceLen:
         lines_out += (d[0] + "\"" + "," + "\"" + currToken + "\"" + "\n")
 
         # reset state
@@ -56,7 +58,10 @@ while i < line_count:
         targetTokenIndex = 0
         currTokenIndex = 0
         restartSentence = False
+        currSentenceCounter = 0
         continue
+    else:
+        currSentenceCounter = currSentenceCounter + 1
 
     if not d[1] in tokenfilter:
         # print leading whitespace in sentence
