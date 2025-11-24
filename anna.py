@@ -38,6 +38,8 @@ while i < line_count:
 
     # detect sentence end case 1
     if d[0] in sentenceEnd or currSentenceCounter > maxSentenceLen:
+        if currSentenceCounter > maxSentenceLen:
+            lines_out += "\""
         lines_out += (d[0] + "\"" + "," + "\"" + currToken + "\"" + "\n")
 
         # reset state
