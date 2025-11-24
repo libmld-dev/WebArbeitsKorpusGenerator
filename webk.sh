@@ -7,7 +7,12 @@ echo "Prepare text for TreeTagger..."
 ./preanna.py web.txt web_split.txt
 echo "Done!"
 echo "Run TreeTagger..."
-./bin/tree-tagger.exe -lemma -token ./lib/german.par ./web_split.txt ./korp.txt
+which wine
+if [ $? = 0 ]; then
+    wine ./bin/tree-tagger.exe -lemma -token ./lib/german.par ./web_split.txt ./korp.txt
+else
+    ./bin/tree-tagger.exe -lemma -token ./lib/german.par ./web_split.txt ./korp.txt
+fi
 echo "Done!"
 echo "Transform result into csv..."
 ./anna.py korp.txt korp.csv
