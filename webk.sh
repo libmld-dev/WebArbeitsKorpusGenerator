@@ -8,11 +8,7 @@ echo "Prepare text for TreeTagger..."
 echo "Done!"
 echo "Run TreeTagger..."
 which wine
-if [ $? = 0 ]; then
-    wine ./bin/tree-tagger.exe -lemma -token ./lib/german.par ./web_split.txt ./korp.txt
-else
-    ./bin/tree-tagger.exe -lemma -token ./lib/german.par ./web_split.txt ./korp.txt
-fi
+./bin/tree-tagger -lemma -token ./lib/german.par ./web_split.txt ./korp.txt
 echo "Done!"
 echo "Transform result into csv..."
 ./anna.py korp.txt korp.csv
@@ -23,4 +19,3 @@ echo "Done!"
 echo "Merging metadata..."
 ./postanna.py korp.csv korpm.csv meta.txt
 echo "Done!"
-

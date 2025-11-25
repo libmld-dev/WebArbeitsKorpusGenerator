@@ -1,2 +1,14 @@
+# TreeTagger
+bin/
+cmd/
+doc/
+lib/
+COPYRIGHT
+FILES
+README
+README.script
+Release-Notes
+
+# WebArbeitsGenerator output
 *.txt
 *.csv
