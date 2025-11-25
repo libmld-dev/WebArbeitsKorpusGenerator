@@ -6,6 +6,7 @@ Entwickelt von
 ## Anforderungen und Installation
 - Linux (Ubuntu/Debian) oder Windows WSL (Ubuntu/Debian)
 - Installation: `./install.sh`
+- Installation (C++ Port, optional): `./install_cpp.sh`
 
 ## Verwendung
 Erstellen eines Webarbeitskorpus: `./webk.sh <Link>`  
@@ -17,6 +18,9 @@ Anschließend wird *webk* für jeden Link aus *Liste.txt* ausgeführt. Die Links
 Löschen von temporären Dateien: `./clean.sh`  
 Löscht alle temporären Dateien. *korpm.csv* bleibt bestehen.
 
+## C++ Port für mehr Performance
+Bei großen Datenmengen oder komplexen Instanzen kann die Verarbeiten mehr Zeit beanspruchen. Der C++ Port kann ist in diesem Fall die Verabeitung beschleunigen.
+Dafür muss die Software mittels `./install_cpp.sh` eingerichtet werden. Anschließend lässt sich `./webk_fast.sh <Link>` bzw. `./webklist_fast.py <Liste.txt>` verwenden.
 
 ## Verwendete 3rd Party Software
 
