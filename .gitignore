@@ -9,6 +9,11 @@ README
 README.script
 Release-Notes
 
+# C++ port
+preanna
+anna
+postanna
+
 # WebArbeitsGenerator output
 *.txt
 *.csv
