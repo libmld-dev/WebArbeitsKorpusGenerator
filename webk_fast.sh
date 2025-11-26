@@ -1,6 +1,5 @@
 #!/bin/bash
 
-make -j3
 echo "Fetch data with trafilatura..."
 trafilatura --config-file settings.cfg -u "$1" --no-tables > web.txt
 echo "Done!"
