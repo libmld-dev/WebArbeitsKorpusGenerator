@@ -64,7 +64,6 @@ int main(int argc, char *argv[])
         // get line and its tags
         const std::string l = lines_in[i];
         std::vector<std::string> d;
-        d.resize(3);
         std::stringstream ss(l);
         std::string item;
         while (std::getline(ss, item, '\t'))
