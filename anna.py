@@ -89,7 +89,7 @@ while i < line_count:
                     break
 
                 # end sentence
-                currSentenceStart = i
+                currSentenceStart = i + 1
                 targetTokenIndex = 0
                 currTokenIndex = 0
                 restartSentence = False
