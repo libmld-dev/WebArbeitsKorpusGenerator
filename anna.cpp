@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
 
         // escape " for csv
         size_t dqpos = d[0].find("\"");
-        if(dqpos != std::string::npos)
+        if (dqpos != std::string::npos)
         {
             d[0].replace(dqpos, 1, "\"\"");
         }
@@ -201,7 +201,6 @@ int main(int argc, char *argv[])
 
         ++i;
     }
-
 
     // has the file ended without sentence termination and a token in pipeline?
     if (currToken != "None")
