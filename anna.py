@@ -34,6 +34,9 @@ while i < line_count:
     l = lines_in[i]
     d = l.split("\t")
 
+    # escape " for csv
+    d[0] = d[0].replace("\"", "\"\"")
+
     # detect sentence end case 1: token is only sentence terminator
     if d[0] in sentenceEnd:
         lines_out += (d[0] + "\"" + "," + "\"" + currToken + "\"" + "\n")

@@ -71,6 +71,13 @@ int main(int argc, char *argv[])
             d.push_back(item);
         }
 
+        // escape " for csv
+        size_t dqpos = d[0].find("\"");
+        if(dqpos != std::string::npos)
+        {
+            d[0].replace(dqpos, 1, "\"\"");
+        }
+
         // detect sentence end case 1: token is only sentence terminator
         bool isSentenceEndTokenOnly = false;
         for (const auto &se : sentenceEnd)
