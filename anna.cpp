@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
         }
 
         // escape " for csv
-        size_t dqpos = d[0].find("\"");
+        const size_t dqpos = d[0].find("\"");
         if (dqpos != std::string::npos)
         {
             d[0].replace(dqpos, 1, "\"\"");
