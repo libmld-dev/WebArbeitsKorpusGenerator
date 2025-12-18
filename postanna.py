@@ -12,6 +12,11 @@ fout = open(sys.argv[2], "a+")
 f = open(sys.argv[3], "r")
 metadata = f.read()
 
+# remove possible data after metadata
+endm0 = metadata.find("---")
+endm1 = metadata.find("---", endm0 + 3)
+metadata = metadata[:endm1]
+
 # remove newlines and ---
 metadata = metadata.replace("\n", "")
 metadata = metadata.replace("---", "")

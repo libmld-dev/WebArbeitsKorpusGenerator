@@ -43,8 +43,13 @@ int main(int argc, char *argv[])
     std::string metadata = buffer.str();
     fmeta.close();
 
-    // remove "---" from metadata string
+    // remove possible data after metadata
     const std::string dashes = "---";
+    const size_t endm0 = metadata.find(dashes);
+    const size_t endm1 = metadata.find(dashes, endm0 + 3);
+    metadata = metadata.substr(0, endm1);
+
+    // remove "---" from metadata string
     size_t pos = std::string::npos;
     while ((pos = metadata.find(dashes)) != std::string::npos)
     {
