@@ -72,10 +72,11 @@ int main(int argc, char *argv[])
         }
 
         // escape " for csv
-        const size_t dqpos = d[0].find("\"");
-        if (dqpos != std::string::npos)
+        size_t dqpos = d[0].find("\"");
+        while (dqpos != std::string::npos)
         {
             d[0].replace(dqpos, 1, "\"\"");
+            dqpos = d[0].find("\"", dqpos + 2); // continue search after 2nd "
         }
 
         // detect sentence end case 1: token is only sentence terminator
