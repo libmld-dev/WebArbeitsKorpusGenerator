@@ -204,9 +204,13 @@ int main(int argc, char *argv[])
     }
 
     // has the file ended without sentence termination and a token in pipeline?
-    if (currToken != "None")
+    if (currToken != "None" && inSentence)
     {
         lines_out += " \",\"" + currToken + "\"\n";
+    }
+    else if (currToken != "None" && !inSentence)
+    {
+        lines_out += "\"\",\"" + currToken + "\"\n";
     }
 
     // newline after status print when finished

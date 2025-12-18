@@ -125,8 +125,10 @@ while i < line_count:
     i = i + 1
 
 # has the file ended without sentence termination and a token in pipeline?
-if not "None" in currToken:
+if not "None" in currToken and inSentence:
         lines_out += (" " + "\"" + "," + "\"" + currToken + "\"" + "\n")
+elif not "None" in currToken and not inSentence:
+        lines_out += ("\"" + "\"" + "," + "\"" + currToken + "\"" + "\n")
 
 # newline after status print when finished
 print()
