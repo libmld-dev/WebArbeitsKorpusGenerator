@@ -1,7 +1,15 @@
 #!/bin/bash
 
 echo "Prepare text for TreeTagger..."
-./preanna.py $1 web_split.txt
+if [[ $1 == *.pdf ]]
+then
+    pdftotext $1 pdf.txt
+    iconv -f utf-8 -t utf-8 -c pdf.txt > text.txt
+    rm pdf.txt
+else
+    cp $1 text.txt
+fi
+./preanna.py text.txt web_split.txt
 echo "Done!"
 echo "Run TreeTagger..."
 which wine
