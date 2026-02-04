@@ -2,7 +2,7 @@
 
 # install required packages
 sudo apt update
-sudo apt install -y curl python3 pipx gzip
+sudo apt install -y curl python3 pipx gzip poppler-utils
 
 # install trafilatura
 pipx ensurepath
