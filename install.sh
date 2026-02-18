@@ -23,3 +23,10 @@ rm *.gz install-tagger.sh
 
 # make python files executable in case the are not
 chmod +x *.py
+
+if [[ $1 == "OMPK" ]]
+then
+    curl -L --output million_post_corpus.tar.bz2 https://github.com/OFAI/million-post-corpus/releases/download/v1.0.0/million_post_corpus.tar.bz2
+    tar -xvf million_post_corpus.tar.bz2
+    rm million_post_corpus.tar.bz2
+fi
