@@ -12,7 +12,6 @@ fi
 ./preanna.py text.txt web_split.txt
 echo "Done!"
 echo "Run TreeTagger..."
-which wine
 ./bin/tree-tagger -lemma -token ./lib/german.par ./web_split.txt ./korp.txt
 echo "Done!"
 echo "Transform result into csv..."
