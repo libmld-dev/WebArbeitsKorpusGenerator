@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
     // check args
     if (argc < 4)
     {
-        std::cerr << "Usage: " << argv[0] << " input_file output_file metadata_file\n";
+        std::cerr << "Usage: " << argv[0] << " input_file output_file metadata_file [escape]\n";
         return 1;
     }
 
@@ -35,6 +35,13 @@ int main(int argc, char *argv[])
     {
         std::cerr << "Error opening metadata file\n";
         return 1;
+    }
+
+    // escape flag
+    bool fescape = true;
+    if (argc > 4)
+    {
+        fescape = (argv[4][0] == '1');
     }
 
     // read metadata to string
@@ -63,7 +70,10 @@ int main(int argc, char *argv[])
     std::string line;
     while (std::getline(fin, line))
     {
-        fout << line << ",\"" << metadata << "\"" << std::endl;
+        if (fescape)
+            fout << line << ",\"" << metadata << "\"" << std::endl;
+        else
+            fout << line << "," << metadata << "" << std::endl;
     }
 
     // print newline

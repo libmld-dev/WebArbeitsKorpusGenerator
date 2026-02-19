@@ -20,7 +20,7 @@ for entry in result:
 
     # print metadata
     foutMeta = open("meta.txt", "w+")
-    print(entry[0], "    ", entry[1], "    ", entry[2], "    ", entry[3], file=foutMeta)
+    print("\"" + str(entry[0]) + "\",\"" + str(entry[1]) + "\",\"" + str(entry[2]) + "\",\"" + str(entry[3]) + "\"", file=foutMeta)
     foutMeta.flush()
     foutMeta.close()
 
@@ -37,7 +37,7 @@ for entry in result:
     os.system("./preanna article.txt web_split.txt")
     os.system("./bin/tree-tagger -lemma -token ./lib/german.par ./web_split.txt ./korp.txt")
     os.system("./anna korp.txt korp.csv")
-    os.system("./postanna korp.csv korpm.csv meta.txt")
+    os.system("./postanna korp.csv korpm.csv meta.txt 0")
     os.system("./clean.sh && rm article.txt")
 
     cnt = cnt + 1
