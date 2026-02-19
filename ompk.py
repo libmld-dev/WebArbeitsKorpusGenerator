@@ -8,8 +8,10 @@ conn = sqlite3.connect("million_post_corpus/corpus.sqlite3")
 cursor = conn.cursor()
 
 # fetch data
-topic = "%/" + sys.argv[1] + "/%"
-cursor.execute("SELECT * FROM Articles WHERE Path LIKE ?", (topic, ))
+topicl = sys.argv[1] + "/%"
+topicm = "%/" + sys.argv[1] + "/%"
+topicr = "%/" + sys.argv[1]
+cursor.execute("SELECT * FROM Articles WHERE Path LIKE ? OR Path LIKE ? OR PATH LIKE ?;", (topicl, topicm, topicr))
 result = cursor.fetchall()
 
 # iter results
