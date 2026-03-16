@@ -10,7 +10,7 @@ Entwickelt von
 
 ## Verwendung
 Erstellen eines Webarbeitskorpus: `./webk.sh <Link>`  
-Anschließend befindet sich in *korpm.csv* der Arbeitskorpus. Eine mehrfache Ausführung von *webk* fügt die neuen Daten am Ende der Tabelle von *korpm.csv* hinzu.
+Anschließend befindet sich in *korpm.csv* das Arbeitskorpus. Eine mehrfache Ausführung von *webk* fügt die neuen Daten am Ende der Tabelle von *korpm.csv* hinzu.
 
 Erstellen eines Webarbeitskorpus aus mehreren Links: `./webklist.py <Liste.txt>`  
 Anschließend wird *webk* für jeden Link aus *Liste.txt* ausgeführt. Die Links sollten durch Zeilenumbrüche getrennt sein.
@@ -19,7 +19,7 @@ Löschen von temporären Dateien: `./clean.sh`
 Löscht alle temporären Dateien. *korpm.csv* bleibt bestehen.
 
 ## C++ Port für mehr Performance
-Bei großen Datenmengen oder komplexen Instanzen kann die Verarbeiten mehr Zeit beanspruchen. Der C++ Port kann ist in diesem Fall die Verabeitung beschleunigen.
+Bei großen Datenmengen oder komplexen Instanzen kann die Verarbeitung mehr Zeit beanspruchen. Der C++ Port kann in diesem Fall die Verabeitung beschleunigen.
 Dafür muss die Software mittels `./install_cpp.sh` eingerichtet werden. Anschließend lässt sich `./webk_fast.sh <Link>` bzw. `./webklist_fast.py <Liste.txt>` verwenden.
 
 ## Verwendete 3rd Party Software
